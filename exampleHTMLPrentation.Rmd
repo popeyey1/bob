@@ -1,0 +1,114 @@
+
+---
+title: '<font size = 7 color = "skyblue"> My presentation </font>'
+subtitle: '<font size = 6 color = "gold">An Example </font>'
+author: '<font size = 6 color = "skyblue">Yuanqi Zhang </font>'
+institute: '<!--img src = "https://www.wcupa.edu/communications/images/mainLogo1.png" width="130" height="100"--><br><font size = 3 color = "skyblue">West Chester University of Pennsylvania</font><br> '
+date: '<font color = "skyblue" size =5> 09/20/2022 <font> <br> <font color = "skyblue" size =4>'
+output:
+  xaringan::moon_reader:
+    #yolo: true  #randomly insert new slides with background image of Karl’s mustache photo into existing slides
+    lib_dir: libs
+    self_contained: true
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: true
+      #titleSlideClass: [center, middle, inverse]  # default set up of the title page
+      #titleSlideClass: [top, left, inverse]
+      #autoplay: 30000     # This sets autoplay, 30000 = 10 seconds
+      #countdown: 30000    # The timer will count down to 00:00 then continue with red time
+---
+
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+##
+if(!require('xaringan')) {
+  remotes::install_github("yihui/xaringan")
+  library('xaringan')
+}
+if (!require("knitr")) {
+   install.packages("knitr")
+   library(knitr)
+}
+if (!require("leaflet")) {
+   install.packages("leaflet")
+   library(leaflet)
+}
+# remotes::install_github("yihui/xaringan")
+```
+
+
+
+class: inverse, middle   
+<!-- This sets the background color to black and align the text in the slide -->
+<!-- Comments must be placed after the line of the page of configuration and also 
+     be placed in separate lines.  --> 
+<!-- use "---" to close each slide -->
+<!-- not comments should placed immediately before "---" -->
+
+## <center><b>Topic </b></center>    
+<!-- level 2 title -->
+
+### Our data
+<!-- level 3 title  -->
+
+### Data analysis
+<!-- level 3 title  -->
+
+### Publishing Presentation: Story
+
+---
+# <center>R Outputs </center>
+# These are our results and p-values in order to see whether the explanatory variables are statistically significant. The standard error is the difference between our observed results and predicted results. We want to see how much does height and weight affect the length of the catheter that a patient requires.  #
+```{r comment='#'}
+read.table("https://people.sc.fsu.edu/~jburkardt/datasets/regression/x02.txt", skip = 36)
+myRegDat = read.table("https://people.sc.fsu.edu/~jburkardt/datasets/regression/x02.txt", skip = 36)
+names(myRegDat) = c("ID", "Weight", "height", "length")
+myRegDat
+fit = lm(length~ height + Weight, data = myRegDat)
+```
+---
+
+# <center>Specified names</center>
+```{r comment=''}
+names(myRegDat) = c("ID", "Weight", "height", "length")
+myRegDat
+#
+```
+---
+# <center>R Plots</center>
+
+```{r myRegDat, fig.height=4, fig.align='center'}
+plot(myRegDat, pch = 19, col = 'darkgray', las = 1)
+abline(fit, lwd = 2)
+```
+
+---
+```{r comment='#'}
+fit = lm(length~ height + Weight, data = myRegDat)
+coef(summary(fit))
+summary(fit)
+```
+---
+class: center, middle
+
+# <center>Youtube Video </center>
+-It is important to find the right catheter length according to the patient's weight and height otherwise they may be uncomfortable or cause pain if its too big. If its too small, it can cause leaks or it may take a while to drain liquid, while patients prepare for bladder surgery.
+<iframe width="470" height="345" src="https://www.youtube.com/embed/-RysxIAgT7c"></iframe>   
+
+class: middle
+
+#  <center>Story</center>
+
+
+---
+
+
+
+class: inverse, center, middle
+
+# Thanks!
+
