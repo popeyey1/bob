@@ -183,10 +183,9 @@ class: inverse, middle
 
 ---
 # &lt;center&gt;R Outputs &lt;/center&gt;
-
+# These are our results and p-values in order to see whether the explanatory variables are statistically significant. The standard error is the difference between our observed results and predicted results. We want to see how much does height and weight affect the length of the catheter that a patient requires.  #
 
 ```r
-# These are our results and p-values in order to see whether the explanatory variables are statistically significant. The standard error is the difference between our observed results and predicted results. 
 read.table(&quot;https://people.sc.fsu.edu/~jburkardt/datasets/regression/x02.txt&quot;, skip = 36)
 ```
 
@@ -255,6 +254,10 @@ myRegDat
 11 11   33.0   21.0     38
 12 12   58.0   79.0     47
 ```
+
+```r
+#
+```
 ---
 # &lt;center&gt;R Plots&lt;/center&gt;
 
@@ -314,14 +317,12 @@ summary(fit)
 class: center, middle
 
 # &lt;center&gt;Youtube Video &lt;/center&gt;
-
+-It is important to find the right catheter length according to the patient&#39;s weight and height otherwise they may be uncomfortable or cause pain if its too big. If its too small, it can cause leaks or it may take a while to drain liquid, while patients prepare for bladder surgery.
 &lt;iframe width=&quot;470&quot; height=&quot;345&quot; src=&quot;https://www.youtube.com/embed/-RysxIAgT7c&quot;&gt;&lt;/iframe&gt;   
 
 class: middle
 
 #  &lt;center&gt;Story&lt;/center&gt;
-
--`it is important to find the right catheter length according to the patient&#39;s weight and height otherwise they may be uncomfortable or cause pain if its too big. If its too small, it can cause leaks or it may take a while to drain liquid, while patients prepare for bladder surgery. 
 
 
 ---
